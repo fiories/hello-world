@@ -15,11 +15,35 @@
     <body display ="inline"> <!-- onkeyup="whichButton(event)"onload> -->
       <div display ="inline">
             <canvas id="myCanvas" width="100" height="100" style="border:1px solid #c3c3c3;"></canvas>
+
+            <div id="message"></div>
+            <div id="message2"></div>
+            <form action="">
+                <input id="msg" autocomplete="off" /><button>send</button>
 <script src="/socket.io/socket.io.js"></script>
 <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script type="text/javascript">
-	
 
+<script type="text/javascript">
+    $(function (){ 
+        var socket=io();
+        
+socket.on('chat message',function(msg){
+    $("#message").append($("<p>").text(msg));
+
+
+});
+
+ /*       $("form").submit(function (e){
+                e.preventDefault();
+                socket.emit("chat message",$("#msg").val() );
+                $("#msg").val("");
+                return false;
+        });
+*/
+    });
+    
+
+	
 
 </script>
 kkkk
